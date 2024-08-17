@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaysian Cuisine</title>
+    
+       
+</head>
+<body>
+    
+    
+    <link rel="stylesheet" href="style.css">
+    <section id="welcome_header"> <header>
+        <h1>Flavors of Malaysia</h1>
+    </header></section>
+   
+    <nav>
+        <ul>
+            <li><a href=homepage.html src= "homepage.html">Home</a></li> 
+            <li><a href="#recipes">Recipes</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#social">Share with friends!</a></li>
+            <li><a href="test copy.html" src="test copy.html" >Map Of Malaysia</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="featured-dish">
+            <h2>Featured Dish: Nasi Lemak</h2>
+            <a href="#" id="dish-link">
+                <!-- <img src="foodImages/nasiLemak.jpg" alt="Nasi Lemak" id="dish-image"> -->
+            </a>
+            <p>Discover the rich flavors of Malaysia's national dish!</p>
+        </section>
+
+        <section id="mainpage-dishes">
+            <div class="flex-container">
+                <div class="dish-item">
+                    <img src="foodImages/Sarawak-Laksa.jpg" alt="sarawak-laksa" class="dish-image">
+                    <h3>Sarawak laksa</h3>
+                    <p>A burst of flavor from the other side of Malaysia</p>
+                </div>
+                <div class="dish-item">
+                    <img src="foodImages/beefRendang.jpg" alt="beef-Rendang" class="dish-image">
+                    <h3>Beef Rendang</h3>
+                    <p>Spicy, rich and creamy. The most authentic beef rendang recipe made with varied spices!</p>
+                </div>
+                <div class="dish-item">
+                    <img src="foodImages/nasiLemak.jpg" alt="nasi-Lemak" class="dish-image">
+                    <h3>Nasi Lemak</h3>
+                    <p>Delicious Malaysian coconut rice, drizzled with an anchovy and hot chile sauce, then topped with fried anchovies, fried peanuts, sliced cucumber, and hard-boiled egg.</p>
+                </div>
+            </div>
+
+            </section>
+
+                <section id="mainpage-dishes">
+                    <div class="flex-container">
+                <div class="dish-item">
+                    <img src="foodImages/nasiKerabu.png" alt="nasi-Kerabu" class="dish-image">
+                    <h3>Nasi Lemak</h3>
+                    <p>Delicious Malaysian coconut rice, drizzled with an anchovy and hot chile sauce, then topped with fried anchovies, fried peanuts, sliced cucumber, and hard-boiled egg.</p>
+                </div>
+                <div class="dish-item">
+                    <img src="foodImages/satay.jpeg" alt="satay" class="dish-image">
+                    <h3>Nasi Lemak</h3>
+                    <p>Delicious Malaysian coconut rice, drizzled with an anchovy and hot chile sauce, then topped with fried anchovies, fried peanuts, sliced cucumber, and hard-boiled egg.</p>
+                </div>
+                <div class="dish-item">
+                    <img src="foodImages/charKueyTeow.jpg" alt="nasi-Lemak" class="dish-image">
+                    <h3>Nasi Lemak</h3>
+                    <p>Delicious Malaysian coconut rice, drizzled with an anchovy and hot chile sauce, then topped with fried anchovies, fried peanuts, sliced cucumber, and hard-boiled egg.</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    <footer>
+        <p>&copy; 2024 Malaysian Cuisine. All rights reserved.</p>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-instagram"></a>
+    </footer>
+
+    <script>
+        const dishes = [
+            {name: "Nasi Lemak", src: "nasi-lemak.jpg", recipe: "nasi-lemak-recipe.html"},
+            {name: "Rendang", image: "rendang.jpg", recipe: "rendang-recipe.html"},
+            {name: "Laksa", image: "laksa.jpg", recipe: "laksa-recipe.html"}
+        ];
+        let currentDishIndex = 0;
+
+        function changeFeaturedDish() {
+            currentDishIndex = (currentDishIndex + 1) % dishes.length;
+            const dish = dishes[currentDishIndex];
+            document.querySelector("#featured-dish h2").textContent = `Featured Dish: ${dish.name}`;
+            document.querySelector("#dish-image").src = dish.image;
+            document.querySelector("#dish-link").href = dish.recipe;
+        }
+
+        setInterval(changeFeaturedDish, 5000);
+
+        // Add click event listener to the dish image
+        document.querySelector("#dish-link").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            window.location.href = this.href; // Navigate to the recipe page
+        });
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Function to get a cookie
+        function getCookie(name) {
+            const nameEQ = name + "=";
+            const ca = document.cookie.split(';');
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Function to show the welcome message
+        function showWelcomeMessage() {
+            const username = getCookie("username");
+            const h1 = document.getElementById("welcome_header").getElementsByTagName("h1")[0];
+            const defaultName = "stranger"; // Default name if user doesn't provide one
+            // const inputUsername = prompt("Please enter your name! (This will be collected for cookies purposes you are free to leave it blank)")
+            if (username) {
+                h1.innerHTML = "Welcome " + username + " to " + h1.innerHTML;
+            } else {
+                const inputUsername = prompt("Please enter your name! (This will be collected for cookies purposes you are free to leave it blank)") || defaultName;// Use defaultName if canceled
+                setCookie("username",  defaultName , 7); // Set cookie only if a proper name is provided
+                h1.innerHTML = "Welcome " + inputUsername + " to " + h1.innerHTML;
+            }
+        }
+        window.onload = showWelcomeMessage;
+    </script>
+</body>
+</html>

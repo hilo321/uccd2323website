@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+header {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+nav {
+    background-color: #b71c1c;
+    padding: 0.5em;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+nav ul li {
+    margin: 0 1em;
+}
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+main {
+    max-width: 1500px;
+    margin: 2em auto;
+    padding: 1em;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#featured-dish {
+    margin-bottom: 40px; /* Space between featured dish and recipes */
+    text-align: center; /* Center text if needed */
+    padding: 20px; /* Optional padding */
+    background-color: #f9f9f9; /* Optional background color */
+    border: 1px solid #ccc; /* Optional border for emphasis */
+    image-resolution: 400px;
+}
+#featured-dish img {
+    max-width: 50%;
+    height: 50%;
+}
+footer {
+    background-color: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height:50px;
+}
+#featured-dish img {
+    max-width: 100%;
+    height: auto;
+    cursor: pointer; /* Add this to show it's clickable */
+}
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+    .fa-facebook {
+background: #3B5998;
+color: white;
+}
+
+
+
+#mainpage-dishes {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.dish-item {
+    flex: 1;
+    max-width: calc(33.33% - 14px);
+    text-align: left;
+}
+
+.dish-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.dish-item h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.dish-item p {
+    margin-top: 0;
+    font-size: 14px;
+}
